@@ -1,0 +1,46 @@
+<div id="popup" class="<?php echo (Application::$view->is_popup ? 'popupStories' : 'storiesPage'); ?>">
+    <div class="popupContainerWithArrows" class ="<?php echo (Application::$view->is_popup ? 'popupWindow' : 'popupPage'); ?>">
+        <?php if (Application::$view->is_popup) { ?>
+        <div class="popupContainerNav">
+            <span id="closePopupImg">
+                <svg id="closePopupImg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20" height="20" fill="#9F9F9F" viewbox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+                    <g>
+                        <path d="M896.6,26L500,422.6L103.4,26C82,4.7,47.4,4.7,26,26c-21.4,21.4-21.4,56,0,77.4L422.6,500L26,896.6c-21.4,21.4-21.4,56,0,7.4c21.4,21.4,56,21.4,77.4,0L500,577.4L896.6,974c21.4,21.4,56,21.4,77.4,0c21.4-21.4,21.4-56,0-77.4L577.4,500L974,103.4c21.4-21.421.4-56,0-77.4C952.6,4.7,918,4.7,896.6,26L896.6,26z"></path>
+                    </g>
+                </svg>
+            </span>
+        </div>
+        <?php } ?>
+        <div class="popupContentWithArrows">
+            <button class="left"><img src="/prod_src/img/firms/popup/left.svg"/></button>
+            <div class="popupContent">
+                <div class="popupContentMainImg">
+                    <?php if (!$model->story['video_link']) { ?>
+                    <img src="<?php echo $model->story['image_url']; ?>" alt=""/>
+                    <?php } else { ?>
+                    <iframe style="width: 100%; height: 100%;" src="<?php echo $model->story['video_link']; ?>"
+                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <?php } ?>
+                </div>
+                <div class="popupContentMainText">
+                    <div class="popupContentMainTextText">
+                        <p><?php echo $model->story['content']; ?></p>
+                    </div>
+                    <div class="popupContentMainTextAuthor">
+                        <p class="author">
+                            <?php echo $model->story['author']; ?>
+                        </p>
+                        <span class="date"><?php echo $model->story['created_at']; ?></span>
+                    </div>
+                    <div class="likes stories-likes-row" data-story-id="<?php echo $model->story['id']; ?>">
+                        <img src="prod_src/img/firms/popup/stories/like.svg" class="stories-likes">
+                        <span class="stories-likes"><?php echo $model->story['likes']; ?></span>
+                        <img src="prod_src/img/firms/popup/stories/dislike.svg" class="dislike stories-dislikes">
+                        <span class="stories-dislikes"><?php echo $model->story['dislikes']; ?></span>
+                    </div>
+                </div>
+            </div>
+            <button class="right"><img src="/prod_src/img/firms/popup/right.svg"/></button>
+        </div>
+    </div>
+</div>

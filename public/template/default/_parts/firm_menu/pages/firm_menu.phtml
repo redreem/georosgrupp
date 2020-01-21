@@ -1,0 +1,62 @@
+<?php /** @var FirmsModel $model */ ?>
+<?php /** @var FirmsView $view */ ?>
+
+<div class="btnUp"><img src="/prod_src/img/firms/up.svg" alt=""/></div>
+
+<header class="firmMenuSticky">
+    <div class="firmMenuContainer">
+        <?php if ($model->firm_data['logo']) { ?>
+            <div class="firmMenuImg">
+                <img src="<?php echo $model->firm_data['logo']; ?>" title="<?php echo $model->firm_data['name']; ?>"
+                     alt="<?php echo $model->firm_data['name']; ?>"/>
+            </div>
+        <?php } ?>
+        <div>
+            <div class="firmMenuContainer">
+                <div class="firmMenuText">
+                    <div class="firstHeader">
+                        <?php echo $model->firm_data['firm_name_only']; ?>
+                    </div>
+                </div>
+            </div>
+            <div class="firmMenuContainer">
+                <div class="firmMenuItems">
+                    <?php echo $view->menu->setAttributes()->render(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="mnuHelpContainer">
+    <section class="firmMenu">
+        <div class="grey-line">
+            <div class="firmMenuContainer">
+                <div class="firmMenuContainer">
+                    <div class="firmMenuText">
+                        <span class="firstHeader">
+                            <?php echo $model->firm_data['firm_name_only']; ?>
+                        </span>
+                        <?php if ($model->firm_data['address']) { ?>
+                            <div class="firmLocation">
+                                <img src="/prod_src/img/firms/location.svg" alt=""/>
+                                <div class="firmAddress">
+                                    <span>
+                                        <?php echo $model->firm_data['address_abbreviated'] ?? $model->firm_data['address']; ?>
+                                    </span>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="greyMenuSection">
+                    <div class="firmMenuContainer">
+                        <div class="firmMenuItems">
+                            <?php echo $view->menu->setAttributes(['id' => 'owl-firmMenu', 'class' => 'owl-carousel'])->render(); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

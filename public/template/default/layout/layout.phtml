@@ -1,0 +1,25 @@
+<?php
+/** @var CommonView $common_view */
+$common_view = Application::$common_view;
+?>
+<!DOCTYPE html>
+<html>
+
+<?php echo Application::$common_view->head; ?>
+
+<body class="<?php echo $view->body_class ?? ''; ?>">
+
+<?php echo Application::$common_view->nav; ?>
+
+<div class="contWrap">
+
+    <?php echo Application::$view->content; ?>
+
+    <?php echo Application::$common_view->footer; ?>
+
+    <?php echo Application::$common_view->script_section; ?>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<?php
+/* @var $model DiscountsModel */
+/* @var $view DiscountsView */
+?>
+
+<?php echo $view->social_module_mobile_content; ?>
+
+<?php echo Application::$view->firm_menu; ?>
+
+    <div class="wraperAdventBlock">
+        <section class="advertBlock">
+            <!-- Yandex.RTB R-A-116199-1 -->
+            <div id="yandex_rtb_R-A-116199-1"></div>
+            <script type="text/javascript" src="//an.yandex.ru/system/context.js" async=""></script>
+            <script type="text/javascript">
+                (function(w, d, n, s, t) {
+                    w[n] = w[n] || [];
+                    w[n].push(function() {
+                        Ya.Context.AdvManager.render({
+                            blockId: "R-A-116199-1",
+                            renderTo: "yandex_rtb_R-A-116199-1",
+                            async: true
+                        });
+                    });
+                    t = d.getElementsByTagName("script")[0];
+                    s = d.createElement("script");
+                    s.type = "text/javascript";
+                    s.src = "//an.yandex.ru/system/context.js";
+                    s.async = true;
+                    t.parentNode.insertBefore(s, t);
+                })(this, this.document, "yandexContextAsyncCallbacks");
+            </script>
+        </section>
+    </div>
+
+    <section class="discountsItems">
+
+        <div class="discountsItemsContainer">
+            <h1 class="secondHeader">Cкидки и акции</h1>
+            <div class="discountsBlock">
+
+                <?php echo $view->discounts_blocks; ?>
+
+            </div>
+
+            <div id="bottomOfDiscountsBlock"></div>
+            <img id="loading" src="/prod_src/img/ajax-loader.gif" alt=""/>
+        </div>
+
+        <div id="load">
+            <a class="actionBtn">
+                <span>Загрузить еще</span>
+                <img src="/prod_src/img/firms/popup/2.png" id="footerArr" width="7px" alt=""/>
+            </a>
+            <img src="/prod_src//img/loading.gif" id="imgLoad" alt=""/>
+        </div>
+
+    </section>
+
+<?php echo $view->social_module_content; ?>
+
+<?php echo $view->discounts_module_content; ?>
+
+    <section class="advertBlock bottom-block bottom-150">
+        <!-- Yandex.RTB R-A-116199-1 -->
+        <div id="yandex_rtb_R-A-116199-1"></div>
+        <script type="text/javascript" src="//an.yandex.ru/system/context.js" async=""></script>
+        <script type="text/javascript">
+            (function(w, d, n, s, t) {
+                w[n] = w[n] || [];
+                w[n].push(function() {
+                    Ya.Context.AdvManager.render({
+                        blockId: "R-A-116199-1",
+                        renderTo: "yandex_rtb_R-A-116199-1",
+                        async: true
+                    });
+                });
+                t = d.getElementsByTagName("script")[0];
+                s = d.createElement("script");
+                s.type = "text/javascript";
+                s.src = "//an.yandex.ru/system/context.js";
+                s.async = true;
+                t.parentNode.insertBefore(s, t);
+            })(this, this.document, "yandexContextAsyncCallbacks");
+        </script>
+    </section>
+
+    <div id="anons"></div>
+
+<?php echo $model->ads_block; ?>

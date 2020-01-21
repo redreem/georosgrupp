@@ -1,0 +1,43 @@
+<?php /** @var AdminserviceModel $model */ ?>
+<div>
+    <br/>
+    <h1><b>Admin Service</b></h1>
+    <br/>
+    <p>
+        <?php echo $model->message; ?>
+    </p>
+    <br/>
+    <form action="?act=clear_cache_sql" method="post">
+        <input name="token" value="<?php echo $model->token; ?>" type="hidden"/>
+        <label for="cache">Cache id:</label>
+        <select id="cache" name="cache">
+            <?php foreach ($model->cache_list as $cache) { ?>
+                <option value="<?php echo $cache; ?>">
+                    <?php echo $cache; ?>
+                </option>
+            <?php } ?>
+        </select>
+        <button>Очистить SQL кэш</button>
+    </form>
+
+    <br/>
+    <a href="/adminservice/?token=<?php echo $model->token ?>&act=clear_slowly">
+        Удалить файлы (100 файлов) старше 5 часов</a>
+    <br/>
+
+    <br/>
+    <a href="/adminservice/?token=<?php echo $model->token ?>&act=remove_sql_folder">
+        Удалить папку <b>sql</b></a>
+    <br/>
+
+    <br/>
+
+    <form action="?act=clear_cache_image" method="post">
+        <input name="token" value="<?php echo $model->token; ?>" type="hidden"/>
+        <button>Очистить кэш изображений</button>
+    </form>
+    <br/>
+
+    <a href="/adminservice/?token=<?php echo $model->token ?>">Главная</a>
+    <br/>
+</div>

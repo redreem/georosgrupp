@@ -1,0 +1,177 @@
+<?php
+/* @var $model DiscountsModel */
+/* @var $view DiscountsView */
+?>
+
+<?php echo $view->social_module_mobile_content; ?>
+
+<?php echo Application::$view->firm_menu; ?>
+
+    <div class="wraperAdventBlock">
+        <section class="advertBlock">
+            <!-- Yandex.RTB R-A-116199-1 -->
+            <div id="yandex_rtb_R-A-116199-1"></div>
+            <script type="text/javascript" src="//an.yandex.ru/system/context.js" async=""></script>
+            <script type="text/javascript">
+                (function(w, d, n, s, t) {
+                    w[n] = w[n] || [];
+                    w[n].push(function() {
+                        Ya.Context.AdvManager.render({
+                            blockId: "R-A-116199-1",
+                            renderTo: "yandex_rtb_R-A-116199-1",
+                            async: true
+                        });
+                    });
+                    t = d.getElementsByTagName("script")[0];
+                    s = d.createElement("script");
+                    s.type = "text/javascript";
+                    s.src = "//an.yandex.ru/system/context.js";
+                    s.async = true;
+                    t.parentNode.insertBefore(s, t);
+                })(this, this.document, "yandexContextAsyncCallbacks");
+            </script>
+        </section>
+    </div>
+
+    <section class="discountsItems">
+
+        <div class="discountsItemsContainer">
+            <h1 class="secondHeader">Cкидки и акции</h1>
+            <div class="discountsBlock">
+
+                <?php foreach ($model->discounts_data as $discount) { ?>
+                    <div class="discountsBlockItem"
+                         data-url="<?php echo $discount['id']; ?>"
+                         style="
+                                 background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)), url('<?php echo $discount['image_resizes_url']; ?>') no-repeat;
+                                 background-size:cover !important;
+                                 background-position:center;">
+                        <div class="discountsImage"
+                             style="background: url('<?php echo $discount['image_resizes_url']; ?>') no-repeat; background-size:cover !important;">
+                            <div class="discountsImageBefore">
+                                <?php if ($discount['percent']) { ?>
+                                    <div class="discountsPercent">
+                                        <span><?php echo $discount['percent']; ?></span>
+                                    </div>
+                                <?php } ?>
+                                <div class="discountsTimer">
+                                    <img src="/prod_src/img/firms/discounts/clock.png"
+                                         width="37" height="41" alt=""/>
+                                    <p class="period_discount">
+                                        <?php if (!!$discount['before_end']) { ?>
+                                            <?php if (isset($discount['today_end'])) { ?>
+                                                <span>Акция сегодня заканчивается!</span>
+                                            <?php } else { ?>
+                                                До завершения осталось:
+                                                <span class="yellow">
+                                                    <?php echo $discount['before_end']; ?>
+                                                </span>
+                                            <?php } ?>
+                                        <?php } else { ?>
+                                            <span class="discountsTimeEnd">Акция закончилась</span>
+                                        <?php } ?>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="discountsImageHover">
+                                <div class="discountsButton" data-url="<?php echo $discount['id']; ?>">
+                                    <button class="actionBtn click_url" data-url="<?php echo $discount['id']; ?>">
+                                        <span>Подробнее</span>
+                                        <img src="/prod_src/img/firms/opinions/arrow-point-to-right.png" width="7"
+                                             height="12" alt=""/>
+                                    </button>
+                                </div>
+                                <div class="discountsViews">
+                                    <span><?php echo $discount['views']; ?> </span>
+                                    <img src="/prod_src/img/firms/discounts/eye.png" width="22" height="11"
+                                         alt="просмотров"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="discountsDescription">
+                            <h3 class="discountsTitle"
+                                data-url="<?php echo $discount['id']; ?>">
+                                <?php echo $discount['heading']; ?>
+                            </h3>
+                            <?php if ($discount['active'] && !empty($discount['top_filial'])) { ?>
+                                <div class="pricesText">
+                                    <?php if ($discount['top_filial']['tip_skidki'] === $model::TYPE['DISCOUNT']) { ?>
+                                        <p>
+                                            <span>
+                                                Цена:
+                                                <span class="old-price">
+                                                    <?php echo $discount['top_filial']['price_orig']; ?>
+                                                </span>
+                                                <span>&nbsp;</span>
+                                                <span>
+                                                    <?php echo $discount['top_filial']['gold_skidka']; ?>
+                                                </span>
+                                            </span>
+                                        </p>
+                                    <?php } elseif ($discount['top_filial']['tip_skidki'] === $model::TYPE['COUPON']) { ?>
+                                        <p>
+                                            <span>
+                                                Цена: <?php echo $discount['top_filial']['gold_skidka']; ?>
+                                                <?php if ($discount['top_filial']['extra_price'] > 0) { ?>
+                                                    +
+                                                    цена доплаты
+                                                    <?php echo $discount['top_filial']['extra_price_text']; ?>
+                                                <?php } ?>
+                                            </span>
+                                        </p>
+                                    <?php } ?>
+                                </div>
+                            <?php } ?>
+                            <div class="discountsText">
+                                <?php echo $discount['preview_small']; ?>
+                            </div>
+                        </div>
+
+                    </div>
+                <?php } ?>
+            </div>
+            <img id="loading" src="/prod_src/img/ajax-loader.gif" alt=""/>
+        </div>
+
+        <div id="load">
+            <a class="actionBtn">
+                <span>Загрузить еще</span>
+                <img src="/prod_src/img/firms/popup/2.png" id="footerArr" width="7px" alt=""/>
+            </a>
+            <img src="/prod_src//img/loading.gif" id="imgLoad" alt=""/>
+        </div>
+
+    </section>
+
+<?php echo $view->social_module_content; ?>
+
+<?php echo $view->discounts_module_content; ?>
+
+    <section class="advertBlock bottom-block bottom-150">
+        <!-- Yandex.RTB R-A-116199-1 -->
+        <div id="yandex_rtb_R-A-116199-1"></div>
+        <script type="text/javascript" src="//an.yandex.ru/system/context.js" async=""></script>
+        <script type="text/javascript">
+            (function(w, d, n, s, t) {
+                w[n] = w[n] || [];
+                w[n].push(function() {
+                    Ya.Context.AdvManager.render({
+                        blockId: "R-A-116199-1",
+                        renderTo: "yandex_rtb_R-A-116199-1",
+                        async: true
+                    });
+                });
+                t = d.getElementsByTagName("script")[0];
+                s = d.createElement("script");
+                s.type = "text/javascript";
+                s.src = "//an.yandex.ru/system/context.js";
+                s.async = true;
+                t.parentNode.insertBefore(s, t);
+            })(this, this.document, "yandexContextAsyncCallbacks");
+        </script>
+    </section>
+
+    <div id="anons"></div>
+
+<?php echo $model->ads_block; ?>

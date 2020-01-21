@@ -1,0 +1,51 @@
+            <?php foreach ($model->stories as $story) { ?>
+                <a class="storiesItemBlock" href="javascript:;" data-url="<?php echo $story['id']; ?>">
+                    <div class="imgBox">
+                        <img class="blockImg" src="<?php echo $story['thumb_url']; ?>" alt="picture-<?php echo $story['id'];?>"/>
+                        <?php if (!$story['video_link']) { ?>
+                            <div class="hoverBlockText">
+                                <p class="textItem"><?php echo $story['content']; ?></p>
+                                <div class="arrowContainer"><img class="arrow" src="/prod_src/img/firms/stories/left-arrow.svg" alt=""/></div>
+                                <div class="bottomLine">
+                                    <div class="likeLine stories-likes-row" data-story-id="<?php echo $story['id']; ?>">
+                                        <div class="like"><img class="likeFinger stories-likes" src="/prod_src/img/firms/stories/dislike.svg" alt=""/><span class="likeCount stories-likes"><?php echo $story['likes']; ?></span></div>
+                                        <div class="dislike"><img class="dislikeFinger stories-dislikes" src="/prod_src/img/firms/stories/like.svg" alt=""/><span class="dislikeCount stories-dislikes"><?php echo $story['dislikes']; ?></span></div>
+                                       
+                                    </div>
+                                    <?php /* <div class="countOfAll"><span class="countOf">2</span><span class="Iz">из</span><span class="allCount">36</span></div> */ ?>
+                                </div>
+                                <!--<p style="text-align:center;">picture-<?php //echo $story['id'];?></p>-->
+                            </div>
+                        <?php } else { ?>
+                            <img class="playIcon" src="/prod_src/img/firms/stories/play.svg" alt=""/>
+                            <div class="hoverBlockVideo">
+                                <div class="bottomLine">
+                                    <div class="likeLine stories-likes-row" data-story-id="<?php echo $story['id']; ?>">
+                                        <div class="like"><img class="likeFinger stories-likes" src="/prod_src/img/firms/stories/dislike.svg" alt=""/><span class="likeCount stories-likes"><?php echo $story['likes']; ?></span></div>
+                                        <div class="dislike"><img class="dislikeFinger stories-dislikes" src="/prod_src/img/firms/stories/like.svg" alt=""/><span class="dislikeCount stories-dislikes"><?php echo $story['dislikes']; ?></span></div>
+                                    </div>
+                                    <div class="videoTime"><span class="videoTotalTime"><?php echo $story['video_duration']; ?></span></div>
+                                </div>
+                                <!--<p style="text-align:center;">video-<?php //echo $story['id'];?></p>-->
+                            </div>
+                        <?php } ?>
+                        
+                    </div>
+                </a>
+            <?php } ?>
+
+            <?php if ($model->show_loader) { ?>
+            <div class="loader">
+                <button id="loader_button" data-page="<?php echo $model->page + 1; ?>">Показать еще</button>
+                <div id="floatingBarsG">
+                    <div class="blockG" id="rotateG_01"></div>
+                    <div class="blockG" id="rotateG_02"></div>
+                    <div class="blockG" id="rotateG_03"></div>
+                    <div class="blockG" id="rotateG_04"></div>
+                    <div class="blockG" id="rotateG_05"></div>
+                    <div class="blockG" id="rotateG_06"></div>
+                    <div class="blockG" id="rotateG_07"></div>
+                    <div class="blockG" id="rotateG_08"></div>
+                </div>
+            </div>
+            <?php } ?>

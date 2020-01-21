@@ -1,0 +1,127 @@
+<?php
+/* @var $model StatisticsModel */
+/* @var $view Statisticsview */
+?>
+
+<header class="firmMenuSticky">
+
+    <div class="firmMenuContainer">
+
+        <?php if ($model->firm_data['firm_logo']) { ?>
+            <div class="firmMenuImg">
+                <img src=<?php echo $model->firm_data['firm_logo']; ?> alt=""/>
+            </div>
+        <?php } ?>
+
+        <div>
+            <div class="firmMenuContainer">
+                <div class="firmMenuText">
+                    <div class='firstHeader'>
+                        <?php if ($model->is_net && $model->id_firm != 0) { ?>
+                            <?php echo $model->firm_data['name']; ?>
+                        <?php } else {
+                            echo $model->net_data['name'];
+                        } ?>
+                    </div>
+                    <div class="firmLocationWrap">
+                        <div class="firmLocation">
+                            <img src="/prod_src/img/firms/location.svg" alt=""/>
+                            <div class="firmAddress">
+                                <span>
+                                    <?php echo $model->firm_sql_data['ADRES_FIRM']; ?>
+                                </span>
+                            </div>
+                        </div>
+
+                        <?php if ($model->is_net && $model->id_firm != 0) { ?>
+
+                        <a href="/statistics?id_net=<?php echo $model->firm_sql_data['id_net'];?>">Смотреть статистику сети</a>
+
+                        <?php } ?>
+
+                    </div>
+                </div>
+            </div>
+            <div class="firmMenuContainer">
+                <div class="firmMenuItems">
+                    <ul>
+                        <li class="firmMenuActive"><a href="#stat" class="spanMenuText">Статистика</a></li>
+                        <li><a href="#visitors">Посетители</a></li>
+                        <li><a href="#competitors">Конкуренты</a></li>
+                        <li>
+                            <!--<a class="gotopage" href="<?php /*echo (Application::$base_domain_short == 'www.spr.ru' ? '/reklama.php' : '/business'); */?>">Реклама</a>-->
+                            <a class="gotopage" href="<?php echo (Application::$base_domain_short == 'www.spr.ru' ? '/reklama.php' : '/business'. ($model->id_firm ? '?id_firm='.$model->id_firm : ''))?>">Реклама</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<div class="mnuHelpContainer">
+    <section class="firmMenu">
+        <div class="grey-line">
+            <div class="firmMenuContainer">
+
+                <div>
+                    <div class="firmMenuContainer">
+                        <div class="firmMenuText">
+                            <span class='firstHeader'>
+                                <?php if ($model->is_net && $model->id_firm != 0) { ?>
+                                    <?php echo $model->firm_data['name']; ?>
+                                <?php } else {
+                                    echo $model->net_data['name'];
+                                } ?>
+                            </span>
+
+                            <?php if ($model->id_firm == 0 && $model->id_net > 0) { ?>
+                                <p class="underHeader">
+                                    <?php echo $model->net_filials_count;?> филиал<?php echo StatisticsDataHelper::filialPostfixByNumber($model->net_filials_count)?>
+                                </p>
+                            <?php } ?>
+
+                            <?php if ($model->id_firm > 0 && $model->firm_sql_data['ADRES_FIRM']) { ?>
+                            <div class="firmLocationWrap">
+                                <div class="firmLocation">
+                                    <img src="/prod_src/img/firms/location.svg" alt=""/>
+                                    <div class="firmAddress">
+                                        <span>
+                                            <?php echo $model->firm_sql_data['ADRES_FIRM']; ?>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <?php if ($model->is_net && $model->id_firm != 0) { ?>
+
+                                <a href="/statistics?id_net=<?php echo $model->firm_sql_data['id_net'];?>">Смотреть статистику сети</a>
+
+                                <?php } ?>
+
+                            </div>
+
+                            <?php } ?>
+
+                        </div>
+                    </div>
+                    <div class="greyMenuSection">
+                        <div class="firmMenuContainer">
+                            <div class="firmMenuItems">
+                                <ul id="owl-firmMenu" class="owl-carousel">
+                                    <li class="firmMenuActive"><a href="#stat" class="spanMenuText">Статистика</a></li>
+                                    <li><a href="#visitors">Посетители</a></li>
+                                    <li><a href="#competitors">Конкуренты</a></li>
+                                    <li>
+                                        <!--<a class="gotopage" href="<?php /*echo (Application::$base_domain_short == 'www.spr.ru' ? '/reklama.php' : '/business'); */?>">Реклама</a>-->
+                                        <a class="gotopage" href="<?php echo (Application::$base_domain_short == 'www.spr.ru' ? '/reklama.php' : '/business'. ($model->id_firm ? '?id_firm='.$model->id_firm : ''))?>">Реклама</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

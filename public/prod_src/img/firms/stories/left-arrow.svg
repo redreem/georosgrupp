@@ -1,0 +1,12 @@
+<svg width="25" height="25" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Canvas" transform="translate(423 -676)">
+		<g id="go-back-left-arrow">
+			<g id="Shape">
+				<use xlink:href="#path0_fill" transform="matrix(-1 0 0 1 -398 676)" fill="#FFFFFF"/>
+			</g>
+		</g>
+	</g>
+	<defs>
+		<path id="path0_fill" d="M 25 10.9375L 5.9375 10.9375L 14.6875 2.1875L 12.5 0L 0 12.5L 12.5 25L 14.6875 22.8125L 5.9375 14.0625L 25 14.0625L 25 10.9375Z"/>
+	</defs>
+</svg>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>http://georostgrupp.ru</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+
+    <url><loc>http://georostgrupp.ru/about</loc></url>
+    <url><loc>http://georostgrupp.ru/about/mission</loc></url>
+    <url><loc>http://georostgrupp.ru/about/management</loc></url>
+    <url><loc>http://georostgrupp.ru/about/contacts</loc></url>
+    <url><loc>http://georostgrupp.ru/about/production</loc></url>
+    <url><loc>http://georostgrupp.ru/park</loc></url>
+    <url><loc>http://georostgrupp.ru/park/focus</loc></url>
+    <url><loc>http://georostgrupp.ru/park/news</loc></url>
+    <url><loc>http://georostgrupp.ru/park/partners</loc></url>
+    <url><loc>http://georostgrupp.local/documents</loc></url>
+    <url><loc>http://georostgrupp.ru/documents/foundation</loc></url>
+    <url><loc>http://georostgrupp.ru/documents/presentations</loc></url>
+    <url><loc>http://georostgrupp.ru/documents/trend</loc></url>
+
+</urlset>

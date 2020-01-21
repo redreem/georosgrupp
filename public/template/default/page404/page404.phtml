@@ -1,0 +1,78 @@
+<?php
+/** @var $model Page404Model */
+/** @var Page404View $view */
+/** @var CommonModel $common_model */
+$common_model = Application::$common_model;
+?>
+
+
+<div id="page404_wrap">
+    <img src="<?php echo $model->image_404; ?>">
+    <div class="desc">
+        <div>
+            <h1>404 ошибка</h1>
+            <p>Запрашиваемая вами страница <b><?php echo $model->url; ?></b> не найдена</p>
+        </div>
+        <div>
+            <h2>Выбирайте компании правильно!</h2>
+            <p>СПР содержит цены на услуги более
+                <?php echo $model->firms_total_number; ?>
+                компаний и <?php echo $model->opinions_total_number; ?> <br/>
+                <?php echo $model->opinions_total_number_text; ?>, чтобы вы могли выбрать лучшие.</p>
+            <div class="flex-wrap row-buttons">
+                <a href="<?php echo Application::$base_domain; ?>all/">
+                    <button class="btn-normal btn-white">Организации</button>
+                </a>
+                <a href="<?php echo Application::$base_domain; ?>discount/">
+                    <button class="btn-normal btn-white">Скидки</button>
+                </a>
+                <a href="<?php echo Application::$base_domain; ?>prices/">
+                    <button class="btn-normal btn-white">Цены</button>
+                </a>
+                <a href="<?php echo Application::$base_domain; ?>otzyvy/">
+                    <button class="btn-normal btn-white">Отзывы</button>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php echo $model->ads_block; ?>
+
+<div class="BlurbSection">
+    <div class="BlurbContainer">
+        <!-- Yandex.RTB R-A-116199-1 -->
+        <div id="yandex_rtb_R-A-116199-1"></div>
+        <script type="text/javascript" src="//an.yandex.ru/system/context.js" async=""></script>
+        <script type="text/javascript">
+            (function (w, d, n, s, t) {
+                w[n] = w[n] || [];
+                w[n].push(function () {
+                    Ya.Context.AdvManager.render({
+                        blockId: "R-A-116199-1",
+                        renderTo: "yandex_rtb_R-A-116199-1",
+                        async: true
+                    });
+                });
+                t = d.getElementsByTagName("script")[0];
+                s = d.createElement("script");
+                s.type = "text/javascript";
+                s.src = "//an.yandex.ru/system/context.js";
+                s.async = true;
+                t.parentNode.insertBefore(s, t);
+            })(this, this.document, "yandexContextAsyncCallbacks");
+        </script>
+    </div>
+</div>
+<div id="anons">
+    <?php echo $view->news_content; ?>
+</div>
+
+<style>
+    @media only screen and (min-width: 768px) {
+        .sectionBreadcrumbs {
+            display: none;
+        }
+    }
+</style>

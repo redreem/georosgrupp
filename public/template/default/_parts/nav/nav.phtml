@@ -1,0 +1,26 @@
+<?php
+/* @var $model CommonModel */
+/* @var $view CommonView */
+?>
+
+<nav>
+
+    <div class="navContainer">
+
+        <div class="logoMobCont">
+
+            <div id="logo"><img src="/prod_src/img/logo_ru.png"/></div>
+
+        </div>
+
+        <div id="menu">
+
+            <a href="/" class="button<?php echo (Application::$application_name == 'Home' ? ' active' : ''); ?>">Главная</a>
+            <a href="/about" class="button<?php echo (Application::$application_name == 'About' ? ' active' : ''); ?>">О компании</a>
+            <a href="/park" class="button<?php echo (Application::$application_name == 'Park' ? ' active' : ''); ?>">Индустриальный парк</a>
+            <a href="/documents" class="button<?php echo (Application::$application_name == 'Documents' ? ' active' : ''); ?>">Документация</a>
+
+        </div>
+    </div>
+
+</nav>

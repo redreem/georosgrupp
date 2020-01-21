@@ -1,0 +1,16 @@
+<svg width="74" height="74" viewBox="0 0 74 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g id="Canvas" transform="translate(231 -243)">
+		<g id="play-circle">
+			<g id="Shape">
+				<use xlink:href="#path0_fill" transform="translate(-231 243)" fill="#FFFFFF"/>
+			</g>
+			<g id="Shape">
+				<use xlink:href="#path1_fill" transform="translate(-203.271 261.486)" fill="#FFFFFF"/>
+			</g>
+		</g>
+	</g>
+	<defs>
+		<path id="path0_fill" fill-rule="evenodd" d="M 0 36.9722C 0 16.6375 16.6375 0 36.9722 0C 57.3069 0 73.9444 16.6375 73.9444 36.9722C 73.9444 57.3069 57.3069 73.9445 36.9722 73.9445C 16.6375 73.9445 0 57.3069 0 36.9722ZM 70.5026 36.8915C 70.5026 18.1653 55.6177 3.28036 36.8915 3.28036C 18.1653 3.28036 3.28036 18.1653 3.28036 36.8915C 3.28036 55.6177 18.1653 70.5026 36.8915 70.5026C 55.6177 70.5026 70.5026 55.6177 70.5026 36.8915Z"/>
+		<path id="path1_fill" d="M 0 0L 0 36.9722L 27.7292 18.4861L 0 0Z"/>
+	</defs>
+</svg>
