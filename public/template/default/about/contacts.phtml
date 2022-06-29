@@ -1,0 +1,57 @@
+<?php
+
+/* @var $model AboutModel */
+/* @var $view AboutView */
+
+?>
+
+<div id="main_wrap">
+
+    <div class="ineer_wrap">
+
+        <div class="sidebar">
+
+            <a href="/about/mission" class="button menu">Наша миссия</a>
+            <a href="/about/contacts" class="button active menu">Контакты</a>
+            <a href="/about/production" class="button menu">Продукция и услуги</a>
+            <a href="/about/feedback" class="button menu">Написать нам</a>
+
+        </div>
+
+        <div id="main_text" class="inner_content">
+
+            <hr>
+
+            <h3>Контакты</h3>
+
+
+            <p>452409, Республика Башкортостан, г. Уфа, ул. Путейская, дом 25</p>
+
+            <p>
+                e-mail: <a href="mailto:info@georostgrupp.ru">info@georostgrupp.ru</a>
+            </p>
+
+            <h3>Схема проезда</h3>
+
+            <div class="contact_map" id="ymaps-map-id_134608460253796179369"><img src="/prod_src/img/loading.gif" title="" alt=""></div>
+            <div class="contact_map" style="height:auto;text-align: right;"><a href="http://api.yandex.ru/maps/tools/constructor/?lang=ru-RU" target="_blank" style="color: #1A3DC1; font: 13px Arial,Helvetica,sans-serif;">Создано с помощью инструментов Яндекс.Карт</a></div>
+            <script type="text/javascript">
+                function fid_134608460253796179369(ymaps) {
+                    var map = new ymaps.Map("ymaps-map-id_134608460253796179369", {center: [56.113255, 54.849676], zoom: 15, type: "yandex#map"});
+                    map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
+                    map.geoObjects.add(
+                        new ymaps.Placemark(
+                            [
+                                56.113255,
+                                54.849676],
+                            {balloonContent: "ООО &laquo;Георостгрупп&raquo;", iconContent: ""}, {preset: "twirl#darkorangeIcon"})
+                    );
+                };
+            </script>
+            <script type="text/javascript" src="http://api-maps.yandex.ru/2.0/?coordorder=longlat&load=package.full&wizard=constructor&lang=ru-RU&onload=fid_134608460253796179369"></script>
+
+            <hr>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,160 @@
+<?php
+/* @var $model SocialModuleModel */
+/* @var $view SocialModuleView */
+
+$current_url = Application::$base_domain;
+$uri = trim($_SERVER['REQUEST_URI'], '/');
+if ($uri) {
+    $current_url .= $uri;
+}
+$current_url_encoded = urlencode($current_url);
+?>
+
+<!--Меню появляется при скроле-->
+<div class="container float-visibl fadeOut" id="breadcrumbsFloat">
+    <div class="col-12 col-ms-12 col-xs-12 flex-row-between-center ">
+        <div class="burger-menu h showMenuBg">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <a href="<?php echo Application::$base_domain; ?>res_new.php?id_okrug_find=<?php echo $model->id_okrug; ?>"
+           class="searchImg">
+            <svg id="searchImg" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#9F9F9F"
+                 xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 30 30"
+                 style="enable-background:new 0 0 30 30;" xml:space="preserve">
+                <path d="M25,25l-8-8c1-1.4,1.7-3.1,1.7-5c0-4.7-3.8-8.5-8.5-8.5s-8.5,3.8-8.5,8.5c0,4.7,3.8,8.5,8.5,8.5c2.1,0,4-0.8,5.5-2l8,8            c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3C25.4,26,25.4,25.4,25,25z M3.7,11.9c0-3.6,2.9-6.5,6.5-6.5s6.5,2.9,6.5,6.5            c0,3.6-2.9,6.5-6.5,6.5S3.7,15.5,3.7,11.9z"></path>
+            </svg>
+        </a>
+
+        <div class="h top-2 showMenuSoc">
+            <svg id="btn_soc" width="15" height="17" viewBox="0 0 15 17" version="1.1"
+                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                <g id="Page4445t" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Рghghg4" transform="translate(-495.000000, -544.000000)" fill-rule="nonzero" fill="#B3B3B3">
+                        <g id="tg44gb" transform="translate(0.000000, 191.000000)">
+                            <g id="Gr6345" transform="translate(0.000000, 336.000000)">
+                                <g id="H54y">
+                                    <g id="oup-12" transform="translate(233.000000, 17.000000)">
+                                        <g id="share-symbol" transform="translate(262.000000, 0.000000)">
+                                            <path d="M12.4986199,12.0168579 C11.8658556,12.0168579 11.2994619,12.2711362 10.8679268,12.6720575 L4.92532785,9.13181111 C4.96821587,8.93560734 5.00140116,8.73797922 5.00140116,8.53397391 C5.00140116,8.3299686 4.96752056,8.13305265 4.92532785,7.93613671 L10.8008293,4.42916826 C11.248957,4.85417393 11.8416146,5.11978223 12.4986199,5.11978223 C13.8838052,5.11978223 15,3.97865384 15,2.55987493 C15,1.14394472 13.8831099,0 12.4986199,0 C11.1161843,0 9.99932576,1.14394472 9.99932576,2.55919513 C9.99932576,2.76601676 10.0332064,2.96011639 10.0753991,3.15703233 L4.19986599,6.6668171 C3.75104297,6.23970729 3.15908076,5.97477878 2.50138009,5.97477878 C1.11619484,5.97477878 0,7.11804369 0,8.53397391 C0,9.94990412 1.11619484,11.0938812 2.50138009,11.0938812 C3.15835384,11.0938812 3.75104297,10.8282405 4.19917068,10.4032672 L10.1313716,13.9513151 C10.0905695,14.1319482 10.0649694,14.3203505 10.0649694,14.5080729 C10.0649694,15.8822438 11.1583138,17 12.497893,17 C13.8388312,17 14.9328709,15.882956 14.9328709,14.5080729 C14.9328709,13.1331898 13.8395581,12.0168579 12.4986199,12.0168579 Z"
+                                                  id="gh234566"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+            <svg id="cansel" style="display: none;" width="15" height="15" viewBox="0 0 16 16" version="1.1"
+                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Menus" transform="translate(-15.000000, -95.000000)" fill-rule="nonzero" fill="#B3B3B3">
+                        <g id="Group-3" transform="translate(0.000000, 79.000000)">
+                            <g id="Group-10" transform="translate(15.000000, 16.000000)">
+                                <g id="close-2">
+                                    <path d="M15.8107187,0.18930478 C15.5583123,-0.0631015933 15.1490933,-0.0631015933 14.896687,0.18930478 L0.18930478,14.8966557 C-0.0631015933,15.1490621 -0.0631015933,15.558281 0.18930478,15.8106874 C0.315492342,15.9369375 0.480929922,16 0.646336253,16 C0.811742584,16 0.977148915,15.9369062 1.10336773,15.8106562 L15.8107187,1.10330523 C16.0630938,0.850930103 16.0630938,0.441711153 15.8107187,0.18930478 Z"
+                                          id="Shape"></path>
+                                    <path d="M15.8107144,14.8966557 L1.10330711,0.18930478 C0.850931557,-0.0631015933 0.441680658,-0.0631015933 0.189305103,0.18930478 C-0.0631017012,0.441679903 -0.0631017012,0.850898853 0.189305103,1.10330523 L14.8967124,15.8106874 C15.0229002,15.9369062 15.1883381,16 15.3537447,16 C15.5191513,16 15.6845892,15.9369062 15.8107457,15.8107187 C16.06309,15.558281 16.06309,15.1490621 15.8107144,14.8966557 Z"
+                                          id="Shape"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </div>
+
+        <?php if (!in_array(Application::$application_name, ['Business', 'Page404', 'Statistics'])) { ?>
+
+            <div class="lh-0 h showMenuMore">
+                <svg id="btn_more" width="23" height="4" viewBox="0 0 23 4" version="1.1"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                    <g id="Pag455t" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="gbos544" transform="translate(-715.000000, -551.000000)" fill="#B3B3B3">
+                            <g id="g74320" transform="translate(0.000000, 191.000000)">
+                                <g id="jkb7" transform="translate(0.000000, 336.000000)">
+                                    <g id="bs65">
+                                        <g id="brs2" transform="translate(233.000000, 17.000000)">
+                                            <g id="t6hb23" transform="translate(482.000000, 7.000000)">
+                                                <g id="brst-18">
+                                                    <rect id="Rectangl" x="0" y="0" width="4" height="4" rx="2"></rect>
+                                                    <rect id="Recgle-6" x="9.23529412" y="0" width="4" height="4"
+                                                          rx="2"></rect>
+                                                    <rect id="Rectan-6" x="18.4699707" y="0" width="4" height="4"
+                                                          rx="2"></rect>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                <svg id="cansel" style="display: none;" width="23" height="15" viewBox="0 0 16 16" version="1.1"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="Menus" transform="translate(-15.000000, -95.000000)" fill-rule="nonzero" fill="#B3B3B3">
+                            <g id="Group-3" transform="translate(0.000000, 79.000000)">
+                                <g id="Group-10" transform="translate(15.000000, 16.000000)">
+                                    <g id="close-2">
+                                        <path d="M15.8107187,0.18930478 C15.5583123,-0.0631015933 15.1490933,-0.0631015933 14.896687,0.18930478 L0.18930478,14.8966557 C-0.0631015933,15.1490621 -0.0631015933,15.558281 0.18930478,15.8106874 C0.315492342,15.9369375 0.480929922,16 0.646336253,16 C0.811742584,16 0.977148915,15.9369062 1.10336773,15.8106562 L15.8107187,1.10330523 C16.0630938,0.850930103 16.0630938,0.441711153 15.8107187,0.18930478 Z"
+                                              id="Shape"></path>
+                                        <path d="M15.8107144,14.8966557 L1.10330711,0.18930478 C0.850931557,-0.0631015933 0.441680658,-0.0631015933 0.189305103,0.18930478 C-0.0631017012,0.441679903 -0.0631017012,0.850898853 0.189305103,1.10330523 L14.8967124,15.8106874 C15.0229002,15.9369062 15.1883381,16 15.3537447,16 C15.5191513,16 15.6845892,15.9369062 15.8107457,15.8107187 C16.06309,15.558281 16.06309,15.1490621 15.8107144,14.8966557 Z"
+                                              id="Shape"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+
+        <?php } ?>
+
+    </div>
+
+    <div class="boxMore" style="display: none;">
+        <p><?php echo $model->getOrganizationData('id'); ?> (id)</p>
+        <p class="top-10">
+            <?php echo $model->confirmed_date_text ?>&nbsp;<?php echo $model->confirmed_date ?>
+        </p>
+
+        <a href="<?php echo $model->checkcorrect_url ?>" class="top-15">Заметили ошибку?</a>
+
+        <div class="line-w top-20"></div>
+
+        <?php
+        $forum_adding_url = Application::$base_domain . 'forum_adding.php?id_top=11&id_firm_forum=' . $model->getOrganizationData('id');
+        ?>
+        <a href="<?php echo $forum_adding_url ?>">Добавить отзыв</a>
+
+
+        <div class="line-w top-20"></div>
+
+        <a href="<?php echo $model->cabinet_url ?>">Войти в кабинет организации</a>
+        <a href="<?php echo $model->statistics_url; ?>">Смотреть статистику</a>
+        <a href="<?php echo $model->business_url ?>">Дать рекламу</a>
+    </div>
+
+    <?php echo $view->share_links_mobile_content; ?>
+
+    <ul class="breadcrumbsStat" id="breadcrumbsStat" style="display: none;">
+        <?php foreach (Application::$model->breadcrumbs as $link) { ?>
+            <?php if ($link['active']) { ?>
+                <li class="breadcrumbsItem">
+                    <span class="activeBreadcrumb"><?php echo $link['name']; ?></span>
+                </li>
+            <?php } else { ?>
+                <li class="breadcrumbsItem">
+                    <a href="<?php echo $link['url']; ?>"><?php echo $link['name']; ?></a>
+                </li>
+            <?php } ?>
+        <?php } ?>
+    </ul>
+</div>

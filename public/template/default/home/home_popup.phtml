@@ -1,0 +1,17 @@
+<?php
+
+/* @var $model HomeModel */
+
+?>
+
+<div id="popup">
+
+    География:<br><br>
+
+    <?php
+        echo $model->geo_data['city']['name_ru'] . '<br><br>';
+        echo $model->geo_data['region']['name_ru'] . '<br><br>';
+        echo $model->geo_data['country']['name_ru'] . '<br><br>';
+    ?>
+
+</div>
