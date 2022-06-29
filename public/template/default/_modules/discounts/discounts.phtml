@@ -1,0 +1,102 @@
+<?php
+/* @var $model DiscountsModuleModel */
+/* @var $view DiscountsModuleView */
+?>
+
+<div class="container discount fix-width" id="module-discounts">
+    <div class="flex-wrap disck-pad top-50">
+
+        <div class="col-12 bottom-26 l-r-15-p flex-row-between-center">
+            <h2 class="">Скидки и акции</h2>
+            <a href="<?php echo $model->show_all_url; ?>" class="blue reg-15 left-30 nw" id="discounts_btn">
+                Показать все
+            </a>
+        </div>
+        <div class="row flex owl-carousel" id="owl-discounts">
+
+            <?php foreach ($model->discounts_data as $discount) { ?>
+                <div class="col-4 col-ms-6 col-xs-12 module_discount" data-url="<?php echo $discount['id']; ?>">
+                    <a href="" class="mob-pos-img-discount discount_module_disc_link"
+                       data-url="<?php echo $discount['id']; ?>" data-module="discounts">
+                        <div class="img-discount bottom-13"
+                             style="background: url(<?php echo $discount['image_url']; ?>);">
+
+                            <?php if ($discount['percent']) { ?>
+                                <div class="disc-board">
+                                    <span class="med-22"><?php echo $discount['percent']; ?></span>
+                                </div>
+                            <?php } ?>
+                            <div class="disc-clock flex">
+                                <img src="/prod_src/img/firms/discounts/clock.png" width="34" height="37" alt=""/>
+                                <div class="flex-column left-15">
+                                    <?php if (!!$discount['before_end']) { ?>
+                                        <?php if (isset($discount['today_end'])) { ?>
+                                            <span class="reg-15">Акция сегодня заканчивается!</span>
+                                        <?php } else { ?>
+                                            <span class="reg-15">До завершения осталось: </span>
+                                            <span class="med-18 yellow">
+                                                <?php echo $discount['before_end']; ?>
+                                            </span>
+                                        <?php } ?>
+                                    <?php } else { ?>
+                                        <span class="med-18 yellow">Акция закончилась</span>
+                                    <?php } ?>
+                                </div>
+                            </div>
+
+                            <div class="disk-mask">
+                                <button class="disk-btn flex urldata discount_module_disc_button"
+                                        data-url="<?php echo $discount['id']; ?>" data-module="discounts">
+                                    <span class="reg-15">Подробнее</span>
+                                    <img src="/prod_src/img/firms/opinions/arrow-point-to-right.png" width="7"
+                                         height="12" alt="">
+                                </button>
+                                <div class="disk-watch flex-row-center">
+                                    <span class="reg-15"><?php echo $discount['views']; ?></span>
+                                    <img src="/prod_src/img/firms/discounts/eye.png" width="22" height="11"
+                                         title="просмотров" alt="просмотров">
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="med-18 h-blue discount_module_disc_link"
+                       data-url="<?php echo $discount['id']; ?>"
+                       data-module="discounts">
+                        <?php echo $discount['heading']; ?>
+                    </a>
+                    <?php if ($discount['active'] && $discount['tip_skidki'] !== $model::TYPE['OTHER']) { ?>
+                        <div class="pricesText">
+                            <?php if ($discount['tip_skidki'] === $model::TYPE['DISCOUNT']) { ?>
+                                <p>
+                                    <span>
+                                        Цена:
+                                        <span class="old-price">
+                                            <?php echo $discount['price_orig']; ?>
+                                        </span>
+                                        <span>&nbsp;</span>
+                                        <span>
+                                            <?php echo $discount['gold_skidka']; ?>
+                                        </span>
+                                    </span>
+                                </p>
+                            <?php } elseif ($discount['tip_skidki'] === $model::TYPE['COUPON']) { ?>
+                                <p>
+                                    <span>
+                                        Цена: <?php echo $discount['gold_skidka']; ?>
+                                        <?php if ($discount['extra_price'] > 0) { ?>
+                                            +
+                                            цена доплаты
+                                            <?php echo $discount['extra_price_text']; ?>
+                                        <?php } ?>
+                                    </span>
+                                </p>
+                            <?php } ?>
+                        </div>
+                    <?php } ?>
+                </div>
+
+            <?php } ?>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+Options All -Indexes
+
+php_value allow_url_fopen 0
+
+DirectoryIndex index.php
+RewriteEngine On
+
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+# redirect popup /page/ -> /
+RewriteRule ^page/(.*)$ /$1 [R,NC,L]
+
+#редирект
+RewriteRule ^([^.]+)/([^.]+.html)$ index.php?urlpath=$1&html=$2 [QSA]
+RewriteRule ^([^.]+)(/*)$ index.php?urlpath=$1 [QSA]
+RewriteRule ^([^.]+)/?$ index.php?urlpath=page404 [L]
+
+RewriteRule ((%3A|:)25|%0D%0A) - [G]

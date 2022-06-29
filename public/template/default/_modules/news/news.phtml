@@ -1,0 +1,47 @@
+<?php
+/* @var $model NewsModuleModel */
+?>
+
+<div class="container fix-width col-12">
+    <div class="col-12 line bottom-line line-news"></div>
+</div>
+
+<div class="container fix-width bottom-150">
+    <div class="row top-55 l-r--15-m l-r-0-30-15-p">
+        <div class="col-12 l-r-15-p">
+            <a title="Новости и события в мире" href="<?php echo $model->getNewsMainLink(); ?>">
+                <h2>Новости и события в мире</h2>
+            </a>
+        </div>
+    </div>
+
+    <div class="row flex top-30 l-r-0-30-15-p">
+        <div class="col-12 l-r-0-p owl-carousel" id="owl-news">
+            <?php foreach ($model->news_data as $row) { ?>
+
+                <div class="news col-12 l-r-0-p">
+
+                    <?php if ($model->img == 1) { ?>
+                        <a href="<?php echo $row['url_news']; ?>" class="bg-news h"
+                           style="background: url(<?php echo $row['img']; ?>); background-size: cover;"></a>
+                    <?php } ?>
+
+                    <a href="<?php echo $row['url_news']; ?>"
+                       class="reg-15 top-15-p un_hv"><?php echo $row['title']; ?></a>
+                    <div class="flex-row-center top-15">
+
+                        <?php if ($row['count_comment'] > 0) { ?>
+                            <a href="<?php echo $row['url_news']; ?>">
+                                <img src="/prod_src/img/firms/modules/news/comment.png" alt="" class="comment h">
+                            </a>
+                            <span class="reg-15 left-8"><?php echo $row['count_comment']; ?></span>
+                        <?php } ?>
+
+                    </div>
+                </div>
+
+            <?php } ?>
+
+        </div>
+    </div>
+</div>
